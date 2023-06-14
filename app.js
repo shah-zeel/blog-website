@@ -38,7 +38,6 @@ app.get('/compose', (req, res) => {
 // Get request for individual blog pages
 app.get('/posts/:postName', (req, res) => {
   const reqTitle = _.lowerCase(req.params.postName);
-  console.log(reqTitle);
   posts.forEach(post => {
     const storedTitle = _.lowerCase(post.title);
     if (reqTitle === storedTitle) {
