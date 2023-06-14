@@ -34,6 +34,17 @@ app.get('/compose', (req, res) => {
   res.render('compose');
 })
 
+// Get request for individual blog pages
+app.get('/posts/:postName', (req, res) => {
+  const reqTitle = req.params.postName;
+  posts.forEach(post => {
+    const storedTitle = post.title;
+    if (reqTitle === storedTitle) {
+      console.log('Match found');
+    }
+  });
+})
+
 app.post('/compose', (req, res) => {
   const post = {
     title: req.body.postTitle,
